@@ -11,7 +11,6 @@
 
 /**
  * struct cmd - holds all arguments and is most important.
- * @cmd: command.
  * @home: home.
  * @argc: number of args
  * @argv: array of pointers to args
@@ -37,7 +36,8 @@ char *home;
 typedef struct builtins
 {
 char *instruction;
-void(*func)(cmd *);
+void(*func)
+(cmd *);
 } builtins_table;
 
 void parse(char *command, char **env, char *home);
