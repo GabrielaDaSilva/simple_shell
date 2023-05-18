@@ -1,11 +1,11 @@
 #include "shell_header.h"
 
 /**
-* execute – Executes system calls
-* @cmd_struct: command structure
-* @newpath: path of file
-* Return: no return
-*/
+ * execute - executes system calls.
+ * @cmd_struct: command structure
+ * @newpath: path of file
+ * Return: no return
+ */
 
 void execute(cmd *cmd_struct, char *newpath)
 {

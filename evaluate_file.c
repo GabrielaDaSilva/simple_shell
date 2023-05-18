@@ -1,15 +1,15 @@
 #include "shell_header.h"
-
 /**
-* eval – Determines whether the command is builtin,
-* system or invalid and takes action.
-* @cmd_struct: command structure.
-* Return: void.
-*/
+ * eval - Determines whether the command is builtin,
+ * system or invalid and takes action.
+ * @cmd_struct: command structure.
+ * Return: void.
+ */
 
 void eval(cmd *cmd_struct)
 {
 	char checkpath[20] = "/bin/", *new_path;
+
 	void (*func)(cmd *cmd_struct) = is_builtin(cmd_struct->argv[0]);
 
 	if (func)

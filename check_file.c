@@ -1,10 +1,10 @@
 #include "shell_header.h"
 
 /**
-* check_file – checks the file.
-* @file: file to be checked.
-* Return: 1 if file found, 0 otherwise
-*/
+ * check_file - checks the file.
+ * @file: file to be checked.
+ * Return: 1 if file found, 0 otherwise
+ */
 
 int check_file(char *file)
 {
@@ -21,10 +21,10 @@ int check_file(char *file)
 }
 
 /**
-* get_len – get length of string
-* @s: string to be checked.
-* Return: length of string
-*/
+ * get_len - gets the length of a string.
+ * @s: string to be checked.
+ * Return: length of string
+ */
 
 size_t get_len(char *s)
 {

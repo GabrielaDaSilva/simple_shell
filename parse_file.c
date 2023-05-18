@@ -4,12 +4,12 @@
 #include "shell_header.h"
 
 /**
-* parse – Tokenizes the string (splits words based on
-* space character) and sends to eval.
-* @command: command to be tokenized.
-* @env: global environment
-* @home: filename of executable
-* Return: no return
+ * parse - Tokenizes the string (splits words based on
+ * space character) and sends to eval.
+ * @command: command to be tokenized.
+ * @env: global environment
+ * @home: filename of executable
+ * Return: no return
 */
 
 void parse(char *command, char **env, char *home)
@@ -30,13 +30,6 @@ void parse(char *command, char **env, char *home)
 	}
 	cmd_struct->env = env;
 	cmd_struct->home = home;
-
-/**
-* Ensure Command is tokenized
-* while (cmd_struct->argv[count] != NULL){
-* printf(“%s\n”, cmd_struct->argv[count]);
-* count++;}
-*/
 
 	if (cmd_struct->argc)
 	{
