@@ -14,7 +14,7 @@
 
 void parse(char *command, char **env, char *home)
 {
-	cmd *cmd_struct = malloc(sizeof(cmd));
+	cmd *cmd_struct = 0;
 	char *token;
 	const char *delim = " ";
 
