@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include "shell_header.h"
-
 /**
- * main - entry point.
+ * main - Entry point
  * @argc: number of arguments
  * @argv: array of pointers to arguments
- * Return: Always 0.
+ * Return: void.
  */
+
 int main(int argc, char **argv)
 {
 	int nread;
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	}
 	while (1)
 	{
-		command = malloc(line_size);
+		command = malloc(100);
 		write(STDIN_FILENO, prompt, nbytes);
 		nread = getline(&command, &line_size, stdin);
 		if (nread == -1)
