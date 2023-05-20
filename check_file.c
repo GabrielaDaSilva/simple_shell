@@ -21,11 +21,10 @@ int check_file(char *file)
 }
 
 /**
- * get_len - gets the length of a string.
+ * get_len - get length of string
  * @s: string to be checked.
  * Return: length of string
  */
-
 size_t get_len(char *s)
 {
 	size_t count = 0;
