@@ -1,5 +1,4 @@
 #include "shell_header.h"
-
 /**
  * _strcmp - Compares 2 strings
  * @s1: String 1 pointer
@@ -121,11 +120,6 @@ char *_strcat(char *dest, char *src)
 	{
 		len_dest++;
 	}
-	/**if (len_dest + len_src > 1024)
-	{
-		return (NULL);
-	}*/
-
 	while (src[len_src] != 0)
 	{
 		dest[len_dest] = src[len_src];
