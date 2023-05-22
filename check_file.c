@@ -1,16 +1,16 @@
 #include "shell_header.h"
 
 /**
- * check_file - checks the file.
- * @file: file to be checked.
+ * file_checker - checks the file.
+ * @the_file: file to be checked.
  * Return: 1 if file found, 0 otherwise
  */
 
-int check_file(char *file)
+int file_checker(char *the_file)
 {
 	struct stat st;
 
-	if (stat(file, &st) == 0)
+	if (stat(the_file, &st) == 0)
 	{
 		return (1);
 	}
@@ -21,17 +21,17 @@ int check_file(char *file)
 }
 
 /**
- * get_len - get length of string
- * @s: string to be checked.
+ * get_the_length - get length of string
+ * @string: string to be checked.
  * Return: length of string
  */
-size_t get_len(char *s)
+size_t get_the_length(char *string)
 {
-	size_t count = 0;
+	size_t ncount = 0;
 
-	while (s[count] != 0)
+	while (string[ncount] != 0)
 	{
-		count++;
+		ncount++;
 	}
-	return (count);
+	return (ncount);
 }

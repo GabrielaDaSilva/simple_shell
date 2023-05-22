@@ -1,26 +1,26 @@
 #include "shell_header.h"
 #include <stdio.h>
 /**
- * is_builtin - checks if command is a built in command.
- * @command: command to be checked.
+ * is_a_builtin - checks if command is a built in command.
+ * @a_command: command to be checked.
  * Return: function pointer
  */
-void (*is_builtin(char *command))(cmd * cmd_struct)
+void (*is_a_builtin(char *a_ommand))(command * cmd_struct)
 {
-	int count;
-	char *builtin_command;
+	int ncount;
+	char *built_in_command;
 
-	builtins_table my_builtins[] = {
-		{"exit", my_exit},
-		{"env", my_env},
+	builtins_table the_builtins[] = {
+		{"exit", exit_func},
+		{"env", env_func},
 		{NULL, NULL}
 	};
-	for (count = 0; my_builtins[count].instruction; count++)
+	for (ncount = 0; the_builtins[count].instruction; ncount++)
 	{
-		builtin_command = my_builtins[count].instruction;
-		if (_strcmp(builtin_command, command) == 0)
+		built_in_command = the_builtins[ncount].instruction;
+		if (_strcmp(built_in_command, a_command) == 0)
 		{
-			return (my_builtins[count].func);
+			return (the_builtins[ncount].func);
 		}
 	}
 	return (NULL);

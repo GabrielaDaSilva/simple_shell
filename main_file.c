@@ -12,10 +12,10 @@
 
 int main(int argc, char **argv)
 {
-	int nread;
-	char *command;
-	const char *prompt = "myshell> ";
-	size_t nbytes = sizeof(prompt), line_size = 1024;
+	int read;
+	char *a_command;
+	const char *prompt = "myshell $ ";
+	size_t num_bytes = sizeof(prompt), line_size = 1024;
 
 	if (argc > 1)
 	{
@@ -23,19 +23,19 @@ int main(int argc, char **argv)
 	}
 	while (1)
 	{
-		command = malloc(100);
+		a_command = malloc(100);
 		write(STDIN_FILENO, prompt, nbytes);
-		nread = getline(&command, &line_size, stdin);
-		if (nread == -1)
+		read = getline(&a_command, &line_size, stdin);
+		if (read == -1)
 		{
-			free(command);
+			free(a_command);
 			return (0);
 		}
-		else if (nread > 1)
+		else if (read > 1)
 		{
-			command[nread - 1] = '\0';
-			if (command)
-				parse(command, environ, argv[0]);
+			a_command[read - 1] = '\0';
+			if (a_command)
+				parse_func(a_command, environ, argv[0]);
 			free(command);
 		}
 	}

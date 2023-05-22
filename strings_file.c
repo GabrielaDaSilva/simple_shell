@@ -1,22 +1,22 @@
 #include "shell_header.h"
 /**
  * _strcmp - Compares 2 strings
- * @s1: String 1 pointer
- * @s2: String 2 pointer
- * Return: -15 - for s1 > s2, 15 for s2 > s1, 0 for s1 = s2
+ * @string1: String 1 pointer
+ * @string2: String 2 pointer
+ * Return: -15 - for string1 > string2, 15 for string2 > string1, 0 for string1 = string2
  */
 
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *string1, char *string2)
 {
 	int i = 0, op = 0;
 
 	while (op == 0)
 	{
-		if (!s1[i] && !s2[i])
+		if (!string1[i] && !string2[i])
 		{
 			break;
 		}
-		op = s1[i] - s2[i];
+		op = string1[i] - string2[i];
 		i++;
 	}
 
@@ -24,81 +24,81 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * get_env_var - gets environment variable.
- * @environ: environment parameter.
- * @var: variable parameter.
+ * get_env_varable - gets environment variable.
+ * @environment: environment parameter.
+ * @variable: variable parameter.
  * Return: environment variable.
  */
 
-char *get_env_var(char **environ, char *var)
+char *get_env_variable(char **environment, char *variable)
 {
-	int count = 0;
-	char *env_var, *ret_var;
+	int ncount = 0;
+	char *env_variable, *ret_variable;
 
-	while ((env_var = environ[count]) != NULL)
+	while ((env_variable = environment[ncount]) != NULL)
 	{
-		ret_var = check_var(env_var, var);
-		if (ret_var)
-			return (ret_var);
-		count++;
+		ret_variable = check_variable(env_variable, variable);
+		if (ret_variable)
+			return (ret_variable);
+		ncount++;
 	}
 	return (NULL);
 }
 
 /**
- * check_var - checks environment variable.
- * @env_var: environment variable parameter.
- * @var: variable parameter.
+ * check_variable - checks environment variable.
+ * @env_variable: environment variable parameter.
+ * @variable: variable parameter.
  * Return: environmen variable
  */
 
-char *check_var(char *env_var, char *var)
+char *check_variable(char *env_variable, char *variable)
 {
-	int letter = 0;
+	int a_letter = 0;
 
-	while (var[letter] != 0)
+	while (variable[a_letter] != 0)
 	{
-		if (env_var[letter] != var[letter])
+		if (env_variable[a_letter] != variable[a_letter])
 		{
 			return (NULL);
 		}
-		letter++;
+		a_letter++;
 	}
-	return (&env_var[letter + 1]);
+	return (&env_variable[a_letter + 1]);
 }
 
 /**
- * handle_path - handles PATH.
+ * path_handle - handles PATH.
  * @cmd_struct: command structure.
- * @checkpath: filename for command
+ * @pathcheck: filename for command
  * Return: void.
  */
 
-char *handle_path(cmd *cmd_struct, char *checkpath)
+char *path_handle(command *cmd_struct, char *pathcheck)
 {
-	int env_count = 0, letter_count = 0;
-	char *new_path, *env_path;
+	int count_environ = 0, count_letter = 0;
+	char *path_new, *path_environ;
 
-	env_path = get_env_var(cmd_struct->env, "PATH");
-	if (env_path)
+	path_environ = get_env_variable(cmd_struct->env, "PATH");
+	if (path_environ)
 	{
-		while (env_path[env_count] != 0 && cmd_struct->argv[0][0] != '.'
+		while (path_environ[count_environ] != 0 && cmd_struct->argv[0][0] != '.'
 		&& cmd_struct->argv[0][0] != '/')
 		{
-			if (checkpath[letter_count] == env_path[env_count])
+			if (pathcheck[count_letter] == path_environ[count_environ])
 			{
-				letter_count++;
-				if (letter_count == 4)
+				count_letter++;
+				if (count_letter == 4)
 				{
-					new_path = _strcat(checkpath, cmd_struct->argv[0]);
-					return (new_path);
+					path_new = _strcat(pathcheck, cmd_struct->argv[0]);
+					return (path_new);
 				}
 			}
 			else
 			{
-				letter_count = 0;
+				count_letter = 0;
 			}
-			env_count++;
+			count_environ++;
 		}
 	}
 	return (cmd_struct->argv[0]);

@@ -1,42 +1,42 @@
 #include "shell_header.h"
 /**
- * my_exit - exits the shell
+ * exit_func- exits the shell
  * @cmd_struct: Structure containing args and env
  */
 
-void my_exit(cmd *cmd_struct)
+void exit_func(command *cmd_struct)
 {
-	int count = 0;
+	int ncount = 0;
 
-	while (cmd_struct->argv[count])
+	while (cmd_struct->argv[ncount])
 	{
-		free(cmd_struct->argv[count]);
-		count++;
+		free(cmd_struct->argv[ncount]);
+		ncount++;
 	}
 	free(cmd_struct);
 	exit(0);
 }
 
 /**
- * my_env - prints environment variables
+ * env_func - prints environment variables
  * @cmd_struct: structure containing args and env
  */
-void my_env(cmd *cmd_struct)
+void env_func(command *cmd_struct)
 {
-	int count = 0;
-	size_t nbytes_environ, count_letters;
+	int ncount = 0;
+	size_t environ_bytes, letter_count;
 	char new_line = '\n';
 
-	while (cmd_struct->env[count])
+	while (cmd_struct->env[ncount])
 	{
-		count_letters = 0;
-		while (cmd_struct->env[count][count_letters])
+		letter_count = 0;
+		while (cmd_struct->env[ncount][letter_count])
 		{
-			count_letters++;
+			letter_count++;
 		}
-		nbytes_environ = count_letters;
-		write(STDOUT_FILENO, cmd_struct->env[count], nbytes_environ);
-		count++;
+		environ_bytes = letter_count;
+		write(STDOUT_FILENO, cmd_struct->env[ncount], environ_bytes);
+		ncount++;
 		write(STDOUT_FILENO, &new_line, 1);
 	}
 }
