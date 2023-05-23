@@ -4,7 +4,7 @@
  * @cmd_struct: Structure containing args and env
  */
 
-void exit_func(command *cmd_struct)
+void exit_func(cmd *cmd_struct)
 {
 	int ncount = 0;
 
@@ -21,7 +21,7 @@ void exit_func(command *cmd_struct)
  * env_func - prints environment variables
  * @cmd_struct: structure containing args and env
  */
-void env_func(command *cmd_struct)
+void env_func(cmd *cmd_struct)
 {
 	int ncount = 0;
 	size_t environ_bytes, letter_count;

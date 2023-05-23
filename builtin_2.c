@@ -5,7 +5,7 @@
  * @a_command: command to be checked.
  * Return: function pointer
  */
-void (*is_a_builtin(char *a_ommand))(command * cmd_struct)
+void (*is_builtin(char *command))(cmd *cmd_struct)
 {
 	int ncount;
 	char *built_in_command;
