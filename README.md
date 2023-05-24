@@ -10,18 +10,18 @@ The command lines are made only of one word. No arguments will be passed to prog
 If an executable cannot be found, print an error message and display the prompt again.
 Handle errors.
 Handle the “end of file” condition (Ctrl+D).
+
 Simple shell 0.1 + should:
-
 Handle command lines with arguments.
-Simple shell 0.2 + should:
 
+Simple shell 0.2 + should:
 Handle the PATH.
 fork must not be called if the command doesn’t exist.
-Simple shell 0.3 + should:
 
+Simple shell 0.3 + should:
 Implement the exit built-in, that exits the shell.
 Usage: exit.
 You don’t have to handle any argument to the built-in exit.
-Simple shell 0.4 + should:
 
+2Simple shell 0.4 + should:
 Implement the env built-in, that prints the current environment.
