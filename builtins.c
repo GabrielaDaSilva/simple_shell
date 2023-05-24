@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "shell.h"
+#include "Shell.h"
 
 /**
  * is_builtin - validate to see if cmd is a builtin

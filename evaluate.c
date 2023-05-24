@@ -1,38 +1,24 @@
-#include "shell.h"
+#include "Shell.h"
 
 /**
- *  _run - runs sys call
- * @newpath: new path
+ * result_ev - Checks if command is a builtin
  * @cmd_struct: The cmd Struct
  * Return: void
  */
 
-void _run(cmd *cmd_struct, char *newpath)
+void result_ev(cmd *cmd_struct)
 {
-	pid_t my_pid;
+	char verify_Path[20] = "/bin/", *cur_Path;
 
-	if (file_validate(newpath))
+	void (*func)(cmd *cmd_struct) = is_builtin(cmd_struct->argv[0]);
+
+	if (func)
 	{
-		while ((my_pid = fork()) < 0)
-		{
-			perror("fork err");
-			exit(1);
-		}
-		if (my_pid == 0)
-		{
-			if (execve(newpath, cmd_struct->argv, cmd_struct->env) < 0)
-			{
-				perror(cmd_struct->home);
-				exit(1);
-			}
-		}
-		else
-		{
-			wait(&my_pid);
-		}
+		func(cmd_struct);
 	}
-	else if (execve(newpath, cmd_struct->argv, cmd_struct->env) < 0)
+	else
 	{
-		perror(cmd_struct->home);
+		cur_Path = process_path(cmd_struct, verify_Path);
+		_run(cmd_struct, cur_Path);
 	}
 }
