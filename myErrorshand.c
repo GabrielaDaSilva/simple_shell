@@ -43,7 +43,7 @@ int sin_putchar(char s)
 
 /**
  * filedes_put - prints char to file descriptor
- * @fd: filedescriptor 
+ * @fd: filedescriptor
  * @c: The char
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.

@@ -10,7 +10,7 @@ int shell_Exit(data_t *data)
 {
 	int check_Exit;
 
-	if (data->argv[1]) 
+	if (data->argv[1])
 	{
 		check_Exit = atoi_Error(data->argv[1]);
 		if (check_Exit == -1)
@@ -91,6 +91,6 @@ int assist_s(data_t *data)
 	arr_argument = data->argv;
 	strPuts("help call works. Function not yet implemented \n");
 	if (0)
-		strPuts(*arr_argument); 
+		strPuts(*arr_argument);
 	return (0);
 }
